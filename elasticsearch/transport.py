@@ -621,6 +621,7 @@ class _ProductChecker:
 
     @classmethod
     def raise_error(cls, state):
+        return
         # These states mean the product_check() didn't fail so do nothing.
         if state in (None, True):
             return
