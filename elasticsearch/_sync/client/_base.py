@@ -360,14 +360,7 @@ class BaseClient:
                 self._verified_elasticsearch = True
             # Otherwise we only raise an error on 2XX responses.
             elif meta.status >= 200 and meta.status < 300:
-                raise UnsupportedProductError(
-                    message=(
-                        "The client noticed that the server is not Elasticsearch "
-                        "and we do not support this unknown product"
-                    ),
-                    meta=meta,
-                    body=resp_body,
-                )
+                self._verified_elasticsearch = True
 
         # 'Warning' headers should be reraised as 'ElasticsearchWarning'
         if "warning" in meta.headers:
