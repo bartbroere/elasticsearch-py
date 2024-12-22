@@ -80,7 +80,7 @@ class ApiError(_ApiError):
         return f"{self.__class__.__name__}({msg})"
 
 
-class UnsupportedProductError(ApiError):
+class UnsupportedProductError(ElasticsearchWarning):
     """Error which is raised when the client detects
     it's not connected to a supported product.
     """
