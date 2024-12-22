@@ -80,15 +80,6 @@ class ApiError(_ApiError):
         return f"{self.__class__.__name__}({msg})"
 
 
-class UnsupportedProductError(ElasticsearchWarning):
-    """Error which is raised when the client detects
-    it's not connected to a supported product.
-    """
-
-    def __str__(self) -> str:
-        return self.message
-
-
 class NotFoundError(ApiError):
     """Exception representing a 404 status code."""
 
@@ -113,6 +104,15 @@ class ElasticsearchWarning(TransportWarning):
     """Warning that is raised when a deprecated option
     or incorrect usage is flagged via the 'Warning' HTTP header.
     """
+
+
+class UnsupportedProductError(ElasticsearchWarning):
+    """Error which is raised when the client detects
+    it's not connected to a supported product.
+    """
+
+    def __str__(self) -> str:
+        return self.message
 
 
 class GeneralAvailabilityWarning(TransportWarning):
